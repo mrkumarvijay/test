@@ -1,0 +1,22 @@
+name: Build my Angular App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+   build-angular-app:
+    runs-on: ubuntu-letest
+
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: 12.x
+      - name: Install depandancies
+        run: npm install
+      - name: Angular build
+        run: npm run build
+        
+        
